@@ -1,0 +1,23 @@
+server:
+  port: 80
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    register-with-eureka: false
+
+
+#不然会报readtimeout
+ribbon:
+  ConnectTimeout: 150000
+  ReadTimeout: 150000
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000000
+        readTimeout: 1200000
+
+  hystrix:
+    enabled: true   #feign支持hystrix开启
